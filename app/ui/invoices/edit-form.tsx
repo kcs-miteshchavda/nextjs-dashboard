@@ -57,7 +57,7 @@ export default function EditInvoiceForm({
 						aria-live="polite"
 						aria-atomic="true"
 					>
-						{state.errors?.customerId &&
+						{state?.errors?.customerId &&
 							state.errors.customerId.map((error: string) => (
 								<p
 									className="mt-2 text-sm text-red-500"
@@ -96,7 +96,7 @@ export default function EditInvoiceForm({
 							aria-live="polite"
 							aria-atomic="true"
 						>
-							{state.errors?.amount &&
+							{state?.errors?.amount &&
 								state.errors.amount.map((error: string) => (
 									<p
 										className="mt-2 text-sm text-red-500"
@@ -158,7 +158,7 @@ export default function EditInvoiceForm({
 						aria-live="polite"
 						aria-atomic="true"
 					>
-						{state.errors?.status &&
+						{state?.errors?.status &&
 							state.errors.status.map((error: string) => (
 								<p
 									className="mt-2 text-sm text-red-500"
