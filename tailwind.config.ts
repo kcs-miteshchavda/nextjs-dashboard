@@ -12,10 +12,10 @@ const config: Config = {
 				'13': 'repeat(13, minmax(0, 1fr))',
 			},
 			colors: {
-				blue: {
-					400: '#2589FE',
-					500: '#0070F3',
-					600: '#2F6FEB',
+				cyan: {
+					400: '#22D3EE',
+					500: '#06B6D4',
+					600: '#0891B2',
 				},
 			},
 		},
