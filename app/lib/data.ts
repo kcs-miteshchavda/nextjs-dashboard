@@ -244,10 +244,10 @@ export async function getUser(email: string) {
 	}
 }
 
-export async function getUsers(start: number, end: number) {
+export async function getUsers() {
 	noStore();
 	try {
-		const data = await axios.get(`${process.env.APP_URL}/api/users?start=${start}&end=${end}`);
+		const data = await axios.get(`${process.env.APP_URL}/api/users`);
 		
 		return data?.data
 	} catch (error) {
