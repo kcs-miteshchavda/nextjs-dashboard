@@ -10,6 +10,7 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
+import Link from 'next/link';
 
 export default function LoginForm() {
 	const [errorMessage, dispatch] = useFormState(authenticate, undefined);
@@ -75,6 +76,7 @@ export default function LoginForm() {
 						</>
 					)}
 				</div>
+				<p>New to Mnds? <Link className='text-cyan-600' href="/register">Create an account</Link></p>
 			</div>
 		</form>
 	);

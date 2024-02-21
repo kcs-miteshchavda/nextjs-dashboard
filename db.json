@@ -1,0 +1,381 @@
+{
+  "invoices": [
+    {
+      "id": "3500ae67-a42c-4086-8d80-9649024bb0e7",
+      "customer_id": "3958dc9e-712f-4377-85e9-fec4b6a6442a",
+      "amount": 15795,
+      "status": "pending",
+      "date": "2022-12-05T18:30:00.000Z"
+    },
+    {
+      "id": "59989110-9cd2-43b4-b467-ee40ef791bc6",
+      "customer_id": "3958dc9e-742f-4377-85e9-fec4b6a6442a",
+      "amount": 20348,
+      "status": "pending",
+      "date": "2022-11-13T18:30:00.000Z"
+    },
+    {
+      "id": "2cd4deb9-e773-4677-801e-7d41538d5225",
+      "customer_id": "3958dc9e-787f-4377-85e9-fec4b6a6442a",
+      "amount": 3040,
+      "status": "paid",
+      "date": "2022-10-28T18:30:00.000Z"
+    },
+    {
+      "id": "a299b699-6928-478b-985d-60845f20d30f",
+      "customer_id": "50ca3e18-62cd-11ee-8c99-0242ac120002",
+      "amount": 44800,
+      "status": "paid",
+      "date": "2023-09-09T18:30:00.000Z"
+    },
+    {
+      "id": "652e36e0-d3c6-453c-8706-f02b13c2d865",
+      "customer_id": "76d65c26-f784-44a2-ac19-586678f7c2f2",
+      "amount": 34577,
+      "status": "pending",
+      "date": "2023-08-04T18:30:00.000Z"
+    },
+    {
+      "id": "7124360f-7c65-4953-9cb5-c34c3a3d5524",
+      "customer_id": "126eed9c-c90c-4ef6-a4a8-fcf7408d3c66",
+      "amount": 54246,
+      "status": "pending",
+      "date": "2023-07-15T18:30:00.000Z"
+    },
+    {
+      "id": "d0223562-ad70-46e2-93d5-b05a32c1a70a",
+      "customer_id": "d6e15727-9fe1-4961-8c5b-ea44a9bd81aa",
+      "amount": 666,
+      "status": "pending",
+      "date": "2023-06-26T18:30:00.000Z"
+    },
+    {
+      "id": "93f9b0ee-1d60-4950-af7d-771851d74e91",
+      "customer_id": "50ca3e18-62cd-11ee-8c99-0242ac120002",
+      "amount": 32545,
+      "status": "paid",
+      "date": "2023-06-08T18:30:00.000Z"
+    },
+    {
+      "id": "9a283dd3-3f81-4b8a-a092-e0cc0858edfe",
+      "customer_id": "3958dc9e-787f-4377-85e9-fec4b6a6442a",
+      "amount": 1250,
+      "status": "paid",
+      "date": "2023-06-16T18:30:00.000Z"
+    },
+    {
+      "id": "42d28686-8221-4c31-84de-023a1cfe3f7d",
+      "customer_id": "76d65c26-f784-44a2-ac19-586678f7c2f2",
+      "amount": 8546,
+      "status": "paid",
+      "date": "2023-06-06T18:30:00.000Z"
+    },
+    {
+      "id": "0df77b11-fb17-4c9b-9ba8-614f29133c5c",
+      "customer_id": "3958dc9e-742f-4377-85e9-fec4b6a6442a",
+      "amount": 500,
+      "status": "paid",
+      "date": "2023-08-18T18:30:00.000Z"
+    },
+    {
+      "id": "ea47c1fd-38fe-4f60-a1aa-7feb245ce804",
+      "customer_id": "76d65c26-f784-44a2-ac19-586678f7c2f2",
+      "amount": 8945,
+      "status": "paid",
+      "date": "2023-06-02T18:30:00.000Z"
+    },
+    {
+      "id": "830889b8-4bfb-4fcc-a2d4-196906f51102",
+      "customer_id": "3958dc9e-737f-4377-85e9-fec4b6a6442a",
+      "amount": 8945,
+      "status": "paid",
+      "date": "2023-06-17T18:30:00.000Z"
+    },
+    {
+      "id": "f07fbe51-0807-4c05-942e-5f807f7cfa32",
+      "customer_id": "3958dc9e-737f-4377-85e9-fec4b6a6442a",
+      "amount": 1000,
+      "status": "paid",
+      "date": "2022-06-04T18:30:00.000Z"
+    },
+    {
+      "id": "84230d84-cb06-40cf-8340-6aa7e6e77498",
+      "customer_id": "3958dc9e-712f-4377-85e9-fec4b6a6442a",
+      "amount": 0,
+      "status": "paid",
+      "date": "2023-10-03T18:30:00.000Z"
+    },
+    {
+      "id": "6039335d-a093-431e-8476-d59a25848577",
+      "customer_id": "3958dc9e-712f-4377-85e9-fec4b6a6442a",
+      "amount": 20000,
+      "status": "pending",
+      "date": "2024-01-30T18:30:00.000Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "3958dc9e-712f-4377-85e9-fec4b6a6442a",
+      "name": "Delba de Oliveira",
+      "email": "delba@oliveira.com",
+      "image_url": "/customers/delba-de-oliveira.png"
+    },
+    {
+      "id": "3958dc9e-742f-4377-85e9-fec4b6a6442a",
+      "name": "Lee Robinson",
+      "email": "lee@robinson.com",
+      "image_url": "/customers/lee-robinson.png"
+    },
+    {
+      "id": "3958dc9e-737f-4377-85e9-fec4b6a6442a",
+      "name": "Hector Simpson",
+      "email": "hector@simpson.com",
+      "image_url": "/customers/hector-simpson.png"
+    },
+    {
+      "id": "50ca3e18-62cd-11ee-8c99-0242ac120002",
+      "name": "Steven Tey",
+      "email": "steven@tey.com",
+      "image_url": "/customers/steven-tey.png"
+    },
+    {
+      "id": "3958dc9e-787f-4377-85e9-fec4b6a6442a",
+      "name": "Steph Dietz",
+      "email": "steph@dietz.com",
+      "image_url": "/customers/steph-dietz.png"
+    },
+    {
+      "id": "76d65c26-f784-44a2-ac19-586678f7c2f2",
+      "name": "Michael Novotny",
+      "email": "michael@novotny.com",
+      "image_url": "/customers/michael-novotny.png"
+    },
+    {
+      "id": "d6e15727-9fe1-4961-8c5b-ea44a9bd81aa",
+      "name": "Evil Rabbit",
+      "email": "evil@rabbit.com",
+      "image_url": "/customers/evil-rabbit.png"
+    },
+    {
+      "id": "126eed9c-c90c-4ef6-a4a8-fcf7408d3c66",
+      "name": "Emil Kowalski",
+      "email": "emil@kowalski.com",
+      "image_url": "/customers/emil-kowalski.png"
+    },
+    {
+      "id": "cc27c14a-0acf-4f4a-a6c9-d45682c144b9",
+      "name": "Amy Burns",
+      "email": "amy@burns.com",
+      "image_url": "/customers/amy-burns.png"
+    },
+    {
+      "id": "13d07535-c59e-4157-a011-f8d2ef4e0cbb",
+      "name": "Balazs Orban",
+      "email": "balazs@orban.com",
+      "image_url": "/customers/balazs-orban.png"
+    }
+  ],
+  "users": [
+    {
+      "id": "410544b2-4001-4271-9855-fec4b6a6442a",
+      "name": "User",
+      "email": "user@nextmail.com",
+      "password": "$2b$10$kUtBvdnW40fGl/Zs1Ix7.Ozq3WcP6OSIbm6btukx0l0/WXlRxXMKO"
+    },
+    {
+      "password": "$2b$08$Y/nzedQEgvt3jCgMQCbRluESqtaLC6lTiYXPAIv13.rQbShMRiG4.",
+      "email": "mitesh.chavda@rysun.com",
+      "dob": "01-31-2024",
+      "hobbies": [
+        "cricket",
+        "dancing",
+        "vlogging"
+      ],
+      "name": "Mitesh Chavda",
+      "gender": "male",
+      "phone": "1231231231",
+      "address": "test,\ntest 1,\ntest 2",
+      "id": "64a9"
+    },
+    {
+      "id": "de31",
+      "name": "Mitesh Chavda",
+      "email": "mitesh.chavda1@rysun.com",
+      "password": "$2b$08$hGr6vcPM7vNev8s5w.c6Quvd3afdvgpId6.A8A0zmCR4BOLjzAXFC"
+    },
+    {
+      "password": "$2b$08$B9JCTdZqSQQbyJLjM7.JH.MQGLDBlHzpDhPk4hGGMPYBL3Uds6YHS",
+      "email": "mitesh.chavda12@rysun.comm",
+      "hobbies": [],
+      "name": "Mitesh Chavda",
+      "gender": "male",
+      "phone": "1231231231",
+      "address": "test ttttst",
+      "dob": "07-02-2024",
+      "id": "efd9"
+    },
+    {
+      "password": "$2b$08$pre7YP8K4jAm.anXXQIVoehKjQ21Gfbr7t0sYzNnMCbNukm1CIE9i",
+      "email": "peter@parker.com",
+      "hobbies": [
+        "singing",
+        "travelling"
+      ],
+      "name": "Peter Parker",
+      "gender": "male",
+      "phone": "1231234566",
+      "address": "test",
+      "dob": "09-02-2024",
+      "id": "6543"
+    },
+    {
+      "password": "$2b$08$LbjHwvwbWIFmDNj46/s/4uN1o4Avi5knMObnNhJ4YATN7TKxWSJtG",
+      "email": "mitesh.chavda22@rysun.com",
+      "hobbies": [],
+      "name": "Mitesh Chavda",
+      "gender": "male",
+      "phone": "1223122333",
+      "address": "test tests",
+      "dob": "06-02-2024",
+      "id": "609d"
+    },
+    {
+      "id": "c197",
+      "name": "Meet Patel",
+      "email": "meet@patel.com",
+      "password": "$2b$08$sEfsubyM1NWzvD.SwHuRuuUSVFSslBubTb8O6Qfph1Bxdt5OiafZC"
+    },
+    {
+      "id": "7978",
+      "name": "Ashish Sharma",
+      "email": "ashish@sharma.com",
+      "password": "$2b$08$Os5OXdx5Dsds3MdMTcfK2.e0Nt.9zfa4tgHWi1wScIy91fwh8KcrC"
+    },
+    {
+      "id": "950c",
+      "name": "Mitesh Chavda 3",
+      "email": "mitesh.chavda3@rysun.com",
+      "gender": "male",
+      "phone": "1111122222",
+      "address": "test,\n10 test",
+      "hobbies": [
+        "cricket",
+        "travelling"
+      ],
+      "dob": "12-01-2023"
+    },
+    {
+      "id": "a775",
+      "name": "test user 1",
+      "email": "test1@test.com",
+      "gender": "male",
+      "phone": "1231231231",
+      "address": "test",
+      "hobbies": [
+        "cricket"
+      ],
+      "dob": "02-01-2024"
+    },
+    {
+      "email": "test2@test.com",
+      "dob": "02-02-2024",
+      "hobbies": [
+        "cricket",
+        "singing"
+      ],
+      "name": "test user 2",
+      "gender": "male",
+      "phone": "1231231231",
+      "address": "test",
+      "id": "99d4"
+    },
+    {
+      "id": "87fd",
+      "name": "test user 3",
+      "email": "test3@test.com",
+      "gender": "male",
+      "phone": "1231231231",
+      "address": "test",
+      "hobbies": [
+        "dancing"
+      ],
+      "dob": "02-03-2024"
+    },
+    {
+      "id": "4063",
+      "name": "test user 4",
+      "email": "test4@test.com",
+      "gender": "male",
+      "phone": "4444444444",
+      "address": "test 4",
+      "hobbies": [
+        "travelling"
+      ],
+      "dob": "02-04-2024",
+      "createdAt": "2024-02-21T08:56:19.180Z",
+      "updatedAt": "2024-02-21T08:56:19.180Z"
+    }
+  ],
+  "revenue": [
+    {
+      "month": "Jan",
+      "revenue": 2000,
+      "id": "cad5"
+    },
+    {
+      "month": "Feb",
+      "revenue": 1800,
+      "id": "b814"
+    },
+    {
+      "month": "Mar",
+      "revenue": 2200,
+      "id": "e57e"
+    },
+    {
+      "month": "Apr",
+      "revenue": 2500,
+      "id": "c92a"
+    },
+    {
+      "month": "May",
+      "revenue": 2300,
+      "id": "2005"
+    },
+    {
+      "month": "Jun",
+      "revenue": 3200,
+      "id": "7b25"
+    },
+    {
+      "month": "Jul",
+      "revenue": 3500,
+      "id": "922d"
+    },
+    {
+      "month": "Aug",
+      "revenue": 3700,
+      "id": "9e97"
+    },
+    {
+      "month": "Sep",
+      "revenue": 2500,
+      "id": "fab9"
+    },
+    {
+      "month": "Oct",
+      "revenue": 2800,
+      "id": "63d2"
+    },
+    {
+      "month": "Nov",
+      "revenue": 3000,
+      "id": "ff26"
+    },
+    {
+      "month": "Dec",
+      "revenue": 4800,
+      "id": "5136"
+    }
+  ]
+}
