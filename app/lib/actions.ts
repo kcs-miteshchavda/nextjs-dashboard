@@ -6,6 +6,10 @@ import { signIn } from '@/auth';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
+import bcrypt from "bcrypt";
+import axios from "axios";
+import { User } from './definitions';
+import { UserDetails } from '../ui/users/userDetails';
 
 const FormSchema = z.object({
 	id: z.string(),
@@ -127,4 +131,27 @@ export async function authenticate(
 		}
 		throw error;
 	}
+}
+
+export async function createUser(payload: User | UserDetails) {
+	try {
+		const { data } = await axios.post(`${process.env.APP_URL}/api/users`, payload);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function updateUser(payload: UserDetails, id: string) {
+	try {
+		const { data } = await axios.put(`${process.env.APP_URL}/api/users/${id}`, payload);
+		
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function encryptPassword(password: string) {
+	return bcrypt.hash(password, 8);
 }
