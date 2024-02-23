@@ -1,18 +1,16 @@
 "use client"
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
 import { PencilIcon, PlusIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import _ from 'lodash';
-import { getUsers } from '@/app/lib/data';
-import UserPlaceholder from "../../../images/users/user_placeholder_img.png";
+import { getRoles } from '@/app/lib/data';
 import Pagination from '@/app/ui/pagination';
-import { deleteUser } from '@/app/lib/actions';
+import { deleteRole } from '@/app/lib/actions';
 import DeleteButton from '@/app/ui/deleteButton';
 import Loading from '@/app/ui/loading';
-import { UserDetails } from '@/app/lib/definitions';
+import { RoleDetails } from '@/app/lib/definitions';
 
 function Page({
 	searchParams,
@@ -24,54 +22,54 @@ function Page({
 }) {
 	const query = searchParams?.query || '';
 
-	const [users, setUsers] = useState<UserDetails[]>();
+	const [roles, setRoles] = useState<RoleDetails[]>();
 	const [totalPages, setTotalPages] = useState<number>(0);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 
-	const fetchUsers = async () => {
-
+	const fetchRoles = async () => {
 		setIsLoading(true);
-		let users = await getUsers();
-		
-		if (!_.isEmpty(users)) {
-			users = users.filter((user: UserDetails) =>
-			user.email.toLocaleLowerCase().includes(query.toLocaleLowerCase()) || (user.firstName + user.lastName).toLocaleLowerCase().includes(query.toLocaleLowerCase()));
-			
-			setUsers(users);
-			setTotalPages(Math.ceil(users.length / 10));
+
+		let roles = await getRoles();
+
+		if (!_.isEmpty(roles)) {
+
+			roles = roles.filter((role: RoleDetails) => role.roleName.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+
+			setRoles(roles);
+			setTotalPages(Math.ceil(roles.length / 10));
 			setIsLoading(false);
 		}
 	};
 
 	useEffect(() => {
 		const fetchData = async () => {
-			await fetchUsers();
+			await fetchRoles();
 		}
 
 		fetchData();
 	}, [query]);
 
 	const deleteHandler = async (id: string) => {
-		await deleteUser(id);
-		await fetchUsers();
+		await deleteRole(id);
+		await fetchRoles();
 	};
 
 	return (
 		<>
 			{isLoading && <Loading />}
-			<title>Users</title>
+			<title>Roles</title>
 			<div className="w-full">
 				<div className="w-full">
 					<h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
-						Users
+						Roles
 					</h1>
 					<div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-						<Search placeholder="Search users..." />
+						<Search placeholder="Search roles..." />
 						<Link
-							href="/dashboard/users/new"
+							href="/dashboard/roles/new"
 							className="flex h-10 items-center rounded-lg bg-cyan-600 px-4 text-sm font-medium text-white transition-colors hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
 						>
-							<span className="hidden md:block">Create User</span>{' '}
+							<span className="hidden md:block">Create Role</span>{' '}
 							<PlusIcon className="h-5 md:ml-4" />
 						</Link>
 					</div>
@@ -83,20 +81,20 @@ function Page({
 
 
 									{/* desktop view */}
-									<table id="usersTable" className="hidden min-w-full rounded-md text-gray-900 md:table">
+									<table id="rolesTable" className="hidden min-w-full rounded-md text-gray-900 md:table">
 										<thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
 											<tr>
 												<th
 													scope="col"
 													className="px-4 py-5 font-medium sm:pl-6"
 												>
-													Name
+													Role Name
 												</th>
 												<th
 													scope="col"
 													className="px-3 py-5 font-medium"
 												>
-													Email
+													Active/Inactive
 												</th>
 												<th
 													scope="col"
@@ -108,32 +106,25 @@ function Page({
 										</thead>
 
 										<tbody className="divide-y divide-gray-200 text-gray-900">
-											{users && users.length > 0 && users.map((user: UserDetails) => (
-												<tr key={user.id} className="group">
+											{roles && roles.length > 0 && roles.map((role: RoleDetails) => (
+												<tr key={role.id} className="group">
 													<td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
 														<div className="flex items-center gap-3">
-															<Image
-																src={UserPlaceholder}
-																className="rounded-full"
-																alt={`${user.firstName} ${user.lastName}'s profile picture`}
-																width={28}
-																height={28}
-															/>
-															<p>{user.firstName} {user.lastName}</p>
+															<p>{role.roleName}</p>
 														</div>
 													</td>
 													<td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-														{user.email}
+														{role.active ? "Active" : "Inactive"}
 													</td>
 													<td className="whitespace-nowrap py-3 pl-6 pr-3">
 														<div className="flex justify-end gap-3">
 															<Link
-																href={`/dashboard/users/${user.id}`}
+																href={`/dashboard/roles/${role.id}`}
 																className="rounded-md border p-2 hover:bg-gray-100"
 															>
 																<PencilIcon className="w-5" />
 															</Link>
-															<DeleteButton id={user.id} moduleName='User' handleDelete={(id) => deleteHandler(id)} />
+															<DeleteButton id={role.id} moduleName='Role' handleDelete={(id) => deleteHandler(id)} />
 														</div>
 													</td>
 												</tr>
