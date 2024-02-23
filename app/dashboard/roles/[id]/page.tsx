@@ -2,20 +2,20 @@
 import Breadcrumbs from '@/app/ui/breadcrumbs';
 import _ from 'lodash';
 import { Suspense } from 'react';
-import UserDetails from '@/app/ui/userDetails';
+import RoleDetails from '@/app/ui/roleDetails';
 
 export default function Page({ params }: { params: { id: string } }) {
     const id: string = params.id;
 
     return (
         <>
-            <title>{id === 'new' ? 'Create User' : 'Edit User'}</title>
+            <title>{id === 'new' ? 'Create Role' : 'Edit Role'}</title>
             <Breadcrumbs
                 breadcrumbs={[
-                    { label: 'Users', href: '/dashboard/users' },
+                    { label: 'Roles', href: '/dashboard/roles' },
                     {
-                        label: id === 'new' ? 'Create User' : 'Edit User',
-                        href: `/dashboard/users/${id}`,
+                        label: id === 'new' ? 'Create Role' : 'Edit Role',
+                        href: `/dashboard/roles/${id}`,
                         active: true,
                     },
                 ]}
@@ -27,7 +27,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 key={id}
                 fallback={"loading..."}
             >
-                <UserDetails id={id} />
+                <RoleDetails id={id} />
             </Suspense>
         </>
     );

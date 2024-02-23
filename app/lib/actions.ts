@@ -1,118 +1,11 @@
 'use server';
 
-import { sql } from '@vercel/postgres';
 import { AuthError } from 'next-auth';
 import { signIn } from '@/auth';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-import { z } from 'zod';
 import bcrypt from "bcrypt";
 import axios from "axios";
-import { User } from './definitions';
-import { UserDetails } from '../ui/users/userDetails';
-
-const FormSchema = z.object({
-	id: z.string(),
-	customerId: z.string({
-		invalid_type_error: 'Please select a customer.',
-	}),
-	amount: z.coerce
-		.number()
-		.gt(0, { message: 'Please enter an amount greater than $0.' }),
-	status: z.enum(['pending', 'paid'], {
-		invalid_type_error: 'Please select an invoice status.',
-	}),
-	date: z.string(),
-});
-
-export type State = {
-	errors?: {
-		customerId?: string[];
-		amount?: string[];
-		status?: string[];
-	};
-	message?: string | null;
-};
-
-const CreateInvoice = FormSchema.omit({ id: true, date: true });
-const UpdateInvoice = FormSchema.omit({ id: true, date: true });
-
-export async function createInvoice(prevState: State, formData: FormData) {
-	try {
-		const validatedFields = CreateInvoice.safeParse({
-			customerId: formData.get('customerId'),
-			amount: formData.get('amount'),
-			status: formData.get('status'),
-		});
-
-		if (!validatedFields.success) {
-			return {
-				errors: validatedFields.error.flatten().fieldErrors,
-				message: 'Missing Fields. Failed to Create Invoice.',
-			};
-		}
-
-		const { customerId, amount, status } = validatedFields.data;
-		const amountInCents = amount * 100;
-		const date = new Date().toISOString().split('T')[0];
-		await sql`
-        INSERT INTO invoices (customer_id, amount, status, date)
-        VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
-      `;
-	} catch (error) {
-		return {
-			message: 'Database Error: Failed to Create Invoice.',
-		};
-	}
-
-	revalidatePath('/dashboard/invoices');
-	redirect('/dashboard/invoices');
-}
-
-export async function updateInvoice(
-	id: string,
-	prevState: State,
-	formData: FormData,
-) {
-	try {
-		const validatedFields = UpdateInvoice.safeParse({
-			customerId: formData.get('customerId'),
-			amount: formData.get('amount'),
-			status: formData.get('status'),
-		});
-
-		if (!validatedFields.success) {
-			return {
-				errors: validatedFields.error.flatten().fieldErrors,
-				message: 'Missing Fields. Failed to Update Invoice.',
-			};
-		}
-
-		const { customerId, amount, status } = validatedFields.data;
-		const amountInCents = amount * 100;
-
-		await sql`
-          UPDATE invoices
-          SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
-          WHERE id = ${id}
-        `;
-	} catch (error) {
-		return { message: 'Database Error: Failed to Update Invoice.' };
-	}
-
-	revalidatePath('/dashboard/invoices');
-	redirect('/dashboard/invoices');
-}
-
-export async function deleteInvoice(id: string) {
-	// throw new Error('Failed to Delete Invoice');
-	try {
-		await sql`DELETE FROM invoices WHERE id = ${id}`;
-	} catch (error) {
-		return { message: 'Database Error: Failed to Delete Invoice.' };
-	}
-	revalidatePath('/dashboard/invoices');
-}
+import { RegistrationUser } from '../register/page';
+import { DepartmentDetails, RoleDetails, UserDetails } from './definitions';
 
 export async function authenticate(
 	prevState: string | undefined,
@@ -133,7 +26,11 @@ export async function authenticate(
 	}
 }
 
-export async function createUser(payload: User | UserDetails) {
+export async function encryptPassword(password: string) {
+	return bcrypt.hash(password, 8);
+}
+
+export async function createUser(payload: UserDetails | RegistrationUser) {
 	try {
 		const { data } = await axios.post(`${process.env.APP_URL}/api/users`, payload);
 		return data;
@@ -152,6 +49,70 @@ export async function updateUser(payload: UserDetails, id: string) {
 	}
 }
 
-export async function encryptPassword(password: string) {
-	return bcrypt.hash(password, 8);
+export async function deleteUser(id: string) {
+	try {
+		const { data } = await axios.delete(`${process.env.APP_URL}/api/users/${id}`);
+		
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function createDepartment(payload: DepartmentDetails) {
+	try {
+		const { data } = await axios.post(`${process.env.APP_URL}/api/departments`, payload);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function updateDepartment(payload: DepartmentDetails, id: string) {
+	try {
+		const { data } = await axios.put(`${process.env.APP_URL}/api/departments/${id}`, payload);
+		
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function deleteDepartment(id: string) {
+	try {
+		const { data } = await axios.delete(`${process.env.APP_URL}/api/departments/${id}`);
+		
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function createRole(payload: RoleDetails) {
+	try {
+		const { data } = await axios.post(`${process.env.APP_URL}/api/roles`, payload);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function updateRole(payload: RoleDetails, id: string) {
+	try {
+		const { data } = await axios.put(`${process.env.APP_URL}/api/roles/${id}`, payload);
+		
+		return data;
+	} catch (error) {
+		throw error;
+	}
+}
+
+export async function deleteRole(id: string) {
+	try {
+		const { data } = await axios.delete(`${process.env.APP_URL}/api/roles/${id}`);
+		
+		return data;
+	} catch (error) {
+		throw error;
+	}
 }

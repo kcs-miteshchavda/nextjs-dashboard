@@ -10,8 +10,9 @@ import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { createUser, encryptPassword } from "../lib/actions";
 import { getUsers } from "../lib/data";
+import { UserDetails } from "../lib/definitions";
 
-type User = {
+export type RegistrationUser = {
     id: string,
     name: string,
     email: string,
@@ -28,14 +29,13 @@ export default function Page() {
         formState: { errors },
         getValues,
         setError
-    } = useForm<User>();
+    } = useForm<RegistrationUser>();
     const router = useRouter();
-    // const onSubmit: SubmitHandler<User> = (data) => console.log(data);
-    const onSubmit: SubmitHandler<User> = async (formData) => {
+    const onSubmit: SubmitHandler<RegistrationUser> = async (formData) => {
         const users = await getUsers();
 
         // user already exists.
-        if (!_.isEmpty(users) && users.find((user: User) => user.email === formData.email)) {
+        if (!_.isEmpty(users) && users.find((user: UserDetails) => user.email === formData.email)) {
             return setError("email", { message: "User already exists.", type: "unique" })
         }
 
