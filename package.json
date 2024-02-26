@@ -5,6 +5,7 @@
 		"start": "next start --port 9027",
 		"dev": "next dev --port 9027",
 		"startJsonServer": "json-server --watch db.json --port 9026",
+		"start-build": "concurrently \"npm run build\" \"npm run startJsonServer\"",
 		"start-dev": "concurrently \"npm run dev\" \"npm run startJsonServer\"",
 		"lint": "next lint",
 		"prettier": "prettier --write --ignore-unknown .",
